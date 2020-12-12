@@ -1,7 +1,8 @@
 <template>
   <HelloWorld msg="1233123132" @handEmit="handFunction" />
-  <p>{{ x }}</p>
-  <p>{{ y }}</p>
+  <!-- <p>{{ x }}</p> -->
+  <!-- <p>{{ y }}</p> -->
+  <p>{{ y }}:{{ x }}</p>
 </template>
 
 <script>
@@ -13,10 +14,12 @@ export default {
     HelloWorld,
   },
   setup() {
+    // const { x, y, obj } = useMouse();
     const { x, y } = useMouse();
     const handFunction = () => {
       console.log("Hello World");
     };
+    // return { handFunction, x, y, obj };
     return { handFunction, x, y };
   },
 };
