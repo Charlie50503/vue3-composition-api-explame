@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <HelloWorld msg="1233123132" @handEmit="handFunction" />
+  <p>{{ x }}</p>
+  <p>{{ y }}</p>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import HelloWorld from "./components/HelloWorld.vue";
+import { useMouse } from "./composition-api/useMouse";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+  setup() {
+    const { x, y } = useMouse();
+    const handFunction = () => {
+      console.log("Hello World");
+    };
+    return { handFunction, x, y };
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.test {
+  background-color: #ccc;
 }
 </style>
